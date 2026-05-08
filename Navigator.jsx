@@ -438,6 +438,132 @@ action: “Email your DSO: dhu@nvcc.edu”,
 },
 },
 },
+{
+id: "transfer",
+icon: "🔄",
+title: "Transfer Out",
+subtitle: "Transferring to another school",
+color: "#1a4a5a",
+tree: {
+question: "What is your current enrollment status at NOVA?",
+options: [
+{ label: "Still enrolled this semester", next: "still_enrolled" },
+{ label: "I've already completed my program or stopped attending", next: "completed_or_left" },
+],
+},
+nodes: {
+still_enrolled: {
+question: "Have you already been accepted to the new school?",
+options: [
+{ label: "Yes, I have an acceptance letter", next: "accepted" },
+{ label: "No, still applying", next: "still_applying" },
+],
+},
+accepted: {
+question: "When do you plan to start at the new school?",
+options: [
+{ label: "Within the next 60 days", next: "transfer_soon" },
+{ label: "More than 60 days from now", next: "transfer_later" },
+],
+},
+transfer_soon: {
+result: true, type: "urgent",
+title: "Start the transfer process now",
+message: "Your current DSO must release your SEVIS record to your new school before they can issue you a new I-20. Contact your advisor at NOVA right away to initiate the transfer. You must request the transfer before your NOVA program end date. Do not enroll at the new school before getting a new I-20.",
+action: "Email your DSO: dhu@nvcc.edu",
+},
+transfer_later: {
+result: true, type: "info",
+title: "Good — you have time, but don't wait too long",
+message: "You'll need to request your SEVIS transfer from NOVA's DSO, and the new school will issue you a new I-20. Start this process at least 30 days before your intended transfer date. The transfer must happen before your NOVA program end date. Also confirm with the new school what they need from you.",
+action: "Email your DSO: dhu@nvcc.edu",
+},
+still_applying: {
+result: true, type: "info",
+title: "Nothing to do on the SEVIS side yet — but plan ahead",
+message: "You can't initiate a SEVIS transfer until you have an acceptance from the new school. Keep working toward your application. Once accepted, come see your DSO promptly — transfers have timing rules tied to your current program end date.",
+},
+completed_or_left: {
+question: "Are you still within your 60-day grace period after program completion?",
+options: [
+{ label: "Yes, within 60 days", next: "grace_period" },
+{ label: "No, more than 60 days have passed", next: "past_grace" },
+],
+},
+grace_period: {
+result: true, type: "urgent",
+title: "Act before your grace period ends",
+message: "You have a 60-day grace period after completing your program to transfer, depart, or apply for OPT. If you want to transfer, contact your DSO and request the SEVIS transfer before that window closes. This is time-sensitive.",
+action: "Email your DSO: dhu@nvcc.edu",
+},
+past_grace: {
+result: true, type: "urgent",
+title: "This is a serious situation — contact your advisor immediately",
+message: "If your grace period has passed and you haven't transferred or departed, your status may be at risk. Do not ignore this. Contact your DSO today to understand your options, which may include reinstatement or departure.",
+action: "Email your DSO: dhu@nvcc.edu",
+},
+},
+},
+{
+id: "oncampus",
+icon: "🏫",
+title: "On-Campus Work",
+subtitle: "Can I work on campus?",
+color: "#3a1a6b",
+tree: {
+question: "Are you currently enrolled full-time at NOVA?",
+options: [
+{ label: "Yes, full-time (12+ credits)", next: "fulltime" },
+{ label: "No, part-time or not enrolled", next: "not_fulltime" },
+],
+},
+nodes: {
+fulltime: {
+question: "Where would you be working?",
+options: [
+{ label: "On NOVA's campus (library, bookstore, department, etc.)", next: "on_nova_campus" },
+{ label: "At a business on campus that serves students (contracted vendor)", next: "contractor" },
+{ label: "Off-campus", next: "off_campus" },
+],
+},
+on_nova_campus: {
+result: true, type: "ok",
+title: "On-campus work is allowed — up to 20 hours per week",
+message: "F-1 students can work on campus without special authorization as long as you are enrolled full-time. You may work up to 20 hours per week while school is in session. During official school breaks (summer, winter), you may work full-time if you are registered for the next semester. Your I-20 and visa are sufficient — no separate work authorization document is needed.",
+},
+contractor: {
+result: true, type: "info",
+title: "It depends — check with your advisor",
+message: "Work for a business that contracts with the school is allowed only if it directly provides services to students on campus. The rules here can be narrow. Confirm with your DSO before you accept the job.",
+action: "Email your DSO: dhu@nvcc.edu",
+},
+off_campus: {
+question: "Do you have CPT, OPT, or other USCIS work authorization?",
+options: [
+{ label: "Yes, I have CPT or OPT authorization", next: "authorized_offcampus" },
+{ label: "No authorization", next: "no_auth" },
+],
+},
+authorized_offcampus: {
+result: true, type: "ok",
+title: "You can work — within your authorization limits",
+message: "As long as you have a valid CPT or OPT authorization on your I-20 or EAD, you're good to work off-campus within those terms. Make sure the job matches your authorized field of study, and don't exceed your authorized hours.",
+},
+no_auth: {
+result: true, type: "urgent",
+title: "Do not work off-campus without authorization",
+message: "Unauthorized off-campus employment is a serious F-1 violation and can result in termination of your SEVIS record. The only exception without separate authorization is severe economic hardship — and that still requires USCIS approval. Talk to your advisor before taking any off-campus job.",
+action: "Email your DSO: dhu@nvcc.edu",
+},
+not_fulltime: {
+result: true, type: "warning",
+title: "On-campus work requires full-time enrollment",
+message: "F-1 students can only work on campus if they are maintaining full-time enrollment (12+ credits in fall/spring). If you are part-time due to an approved RCL, confirm with your DSO whether on-campus work is still permitted in your specific situation.",
+action: "Email your DSO: dhu@nvcc.edu",
+},
+},
+},
+
 ];
 
 const typeConfig = {
@@ -458,7 +584,7 @@ const close = () => { setActive(null); setHistory([]); setNodeId(“start”); }
 const getNode = (s, id) => id === “start” ? s.tree : s.nodes[id];
 
 const choose = (next) => {
-setHistory(h => […h, nodeId]);
+setHistory(h => [...h, nodeId]);
 setNodeId(next);
 };
 
