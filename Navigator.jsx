@@ -541,24 +541,21 @@ const illustrations = {
   ),
 
   travel: (
-    /* Bird watching — kept but toned down: muted palette, reduced opacity, quieter composition */
+    /* Bird watching — very understated, almost whispered */
     <svg viewBox="0 0 300 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ display: "block", width: "100%" }}>
-      <rect width="300" height="130" fill="#e2dced" rx="10"/>
-      {/* Soft layered sky */}
-      <rect width="300" height="90" fill="#d8d0e8" rx="10"/>
-      {/* Distant haze horizon */}
-      <path d="M0 96 Q75 90 150 96 Q225 102 300 96 L300 130 L0 130 Z" fill="#c4bcd8" opacity="0.35"/>
-      {/* Lead bird — slightly more present but still quiet */}
-      <path d="M145 46 Q153 40 161 46" stroke="#6858a0" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.75"/>
+      <rect width="300" height="130" fill="#eae7f0" rx="10"/>
+      {/* Barely-there sky wash */}
+      <rect width="300" height="85" fill="#e4e0ee" rx="10"/>
+      {/* Soft horizon */}
+      <path d="M0 98 Q75 93 150 98 Q225 103 300 98 L300 130 L0 130 Z" fill="#d4cee4" opacity="0.22"/>
+      {/* Lead bird */}
+      <path d="M145 50 Q153 45 161 50" stroke="#8878b0" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.45"/>
       {/* Second pair */}
-      <path d="M120 57 Q128 51 136 57" stroke="#7868b0" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6"/>
-      <path d="M166 59 Q174 53 182 59" stroke="#7868b0" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6"/>
-      {/* Third pair — fading back */}
-      <path d="M98 66 Q105 61 112 66" stroke="#8878c0" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.42"/>
-      <path d="M190 67 Q197 62 204 67" stroke="#8878c0" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.42"/>
-      {/* Distant small birds */}
-      <path d="M74 73 Q79 69 84 73" stroke="#9888cc" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0.28"/>
-      <path d="M218 72 Q223 68 228 72" stroke="#9888cc" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0.28"/>
+      <path d="M122 60 Q129 55 136 60" stroke="#9888be" strokeWidth="1.4" fill="none" strokeLinecap="round" opacity="0.32"/>
+      <path d="M166 62 Q173 57 180 62" stroke="#9888be" strokeWidth="1.4" fill="none" strokeLinecap="round" opacity="0.32"/>
+      {/* Third pair — barely visible */}
+      <path d="M100 69 Q106 65 112 69" stroke="#a898cc" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0.2"/>
+      <path d="M190 70 Q196 66 202 70" stroke="#a898cc" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0.2"/>
     </svg>
   ),
 
