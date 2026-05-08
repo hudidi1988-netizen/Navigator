@@ -543,19 +543,19 @@ const illustrations = {
   travel: (
     /* Bird watching — very understated, almost whispered */
     <svg viewBox="0 0 300 130" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ display: "block", width: "100%" }}>
-      <rect width="300" height="130" fill="#eae7f0" rx="10"/>
+      <rect width="300" height="130" fill="#eceaed" rx="10"/>
       {/* Barely-there sky wash */}
-      <rect width="300" height="85" fill="#e4e0ee" rx="10"/>
+      <rect width="300" height="85" fill="#e6e4e8" rx="10"/>
       {/* Soft horizon */}
-      <path d="M0 98 Q75 93 150 98 Q225 103 300 98 L300 130 L0 130 Z" fill="#d4cee4" opacity="0.22"/>
+      <path d="M0 98 Q75 93 150 98 Q225 103 300 98 L300 130 L0 130 Z" fill="#d8d6da" opacity="0.22"/>
       {/* Lead bird */}
-      <path d="M145 50 Q153 45 161 50" stroke="#8878b0" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.45"/>
+      <path d="M145 50 Q153 45 161 50" stroke="#9a96a2" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.45"/>
       {/* Second pair */}
-      <path d="M122 60 Q129 55 136 60" stroke="#9888be" strokeWidth="1.4" fill="none" strokeLinecap="round" opacity="0.32"/>
-      <path d="M166 62 Q173 57 180 62" stroke="#9888be" strokeWidth="1.4" fill="none" strokeLinecap="round" opacity="0.32"/>
+      <path d="M122 60 Q129 55 136 60" stroke="#a8a4ae" strokeWidth="1.4" fill="none" strokeLinecap="round" opacity="0.32"/>
+      <path d="M166 62 Q173 57 180 62" stroke="#a8a4ae" strokeWidth="1.4" fill="none" strokeLinecap="round" opacity="0.32"/>
       {/* Third pair — barely visible */}
-      <path d="M100 69 Q106 65 112 69" stroke="#a898cc" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0.2"/>
-      <path d="M190 70 Q196 66 202 70" stroke="#a898cc" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0.2"/>
+      <path d="M100 69 Q106 65 112 69" stroke="#b4b0b8" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0.2"/>
+      <path d="M190 70 Q196 66 202 70" stroke="#b4b0b8" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0.2"/>
     </svg>
   ),
 
